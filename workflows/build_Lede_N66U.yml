@@ -18,7 +18,7 @@ on:
         default: 'ssh-actions'
       wxtz:
         description: '微信通知'
-        required: true
+        required: false
         default: 'wxtz-actions'
       release:
         description: '发布固件'
@@ -40,7 +40,7 @@ env:
   REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
   SCKEY: ${{ secrets.SCKEY }}
   TZ: Asia/Shanghai
-  GITHUB_RELEASE: https://github.com/ccbcfan/build-openwrt/releases
+  GITHUB_RELEASE: https://github.com/sepcsqh/build-openwrt/releases
 
 jobs: 
   build:
@@ -81,12 +81,12 @@ jobs:
         echo "SERVERCHAN_SCKEY=${SERVERCHAN_SCKEY}" >> $GITHUB_ENV
     
     - name: 微信通知
-      uses: emon100/Action-Serverchan@v2
-      if: env.SERVERCHAN_SCKEY == 'true' || (github.event.inputs.wxtz == 'wxtz' && github.event.inputs.wxtz  != 'false')
-      with:
-        SCKEY: ${{ secrets.SCKEY }}
-        text: 主人${{matrix.target}}编译开始啦
-        desp: 主人您要编译的[${{ env.WXFB_MESSAGE }}]固件正在努力耕耘中,请耐心等待......
+    #  uses: emon100/Action-Serverchan@v2
+    #  if: env.SERVERCHAN_SCKEY == 'true' || (github.event.inputs.wxtz == 'wxtz' && github.event.inputs.wxtz  != 'false')
+    #  with:
+    #    SCKEY: ${{ secrets.SCKEY }}
+    #    text: 主人${{matrix.target}}编译开始啦
+    #    desp: 主人您要编译的[${{ env.WXFB_MESSAGE }}]固件正在努力耕耘中,请耐心等待......
     
     - name: 开始安装编译所需系统
       env:
@@ -260,21 +260,21 @@ jobs:
         files: ${{ env.FIRMWARE }}/*
     
     - name: 微信通知
-      uses: emon100/Action-Serverchan@v2
-      if: steps.organizer.outputs.status == 'success' && env.SERVERCHAN_SCKEY == 'true' || (github.event.inputs.wxtz == 'wxtz' && github.event.inputs.wxtz  != 'false')
-      with:
-        SCKEY: ${{ secrets.SCKEY }}
-        text: 恭喜主人${{matrix.target}}固件编译成功！
-        desp: 我亲爱的主人您要编译的${{ env.WXFB_MESSAGE }}固件成功编译完成了！
+     # uses: emon100/Action-Serverchan@v2
+     # if: steps.organizer.outputs.status == 'success' && env.SERVERCHAN_SCKEY == 'true' || (github.event.inputs.wxtz == 'wxtz' && github.event.inputs.wxtz  != 'false')
+     # with:
+     #   SCKEY: ${{ secrets.SCKEY }}
+     #   text: 恭喜主人${{matrix.target}}固件编译成功！
+     #   desp: 我亲爱的主人您要编译的${{ env.WXFB_MESSAGE }}固件成功编译完成了！
               
               
-              完成时间：${{ env.date1 }}
+     #         完成时间：${{ env.date1 }}
               
-              
+     #         
               发布地址：${{ env.GITHUB_RELEASE }}
               
               
-              奶牛快传：${{ env.COWTRANSFER_URL }}
+     #         奶牛快传：${{ env.COWTRANSFER_URL }}
               
               
               WeTransfer：${{ env.WETRANSFER_URL }}
