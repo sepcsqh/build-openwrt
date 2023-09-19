@@ -12,4 +12,11 @@ git clone https://github.com/kenzok8/small package/kenzol8/small
 git clone https://github.com/kenzok8/openwrt-packages package/kenzol8/package
 git clone https://github.com/tty228/luci-app-serverchan package/luci-app-serverchan
 git clone https://github.com/ccbcfan/openwrt-filerun package/filerun
-
+git clone https://ghproxy.com/https://github.com/linkease/istore
+git clone https://ghproxy.com/https://github.com/jjm2473/openwrt-third
+git clone https://ghproxy.com/https://github.com/linkease/istore-packages
+git clone https://ghproxy.com/https://github.com/jjm2473/luci-app-diskman
+git clone https://ghproxy.com/https://github.com/jjm2473/OpenAppFilter
+git clone https://ghproxy.com/https://github.com/linkease/nas-packages
+git clone https://ghproxy.com/https://github.com/linkease/nas-packages-luci
+git clone  https://ghproxy.com/https://github.com/jjm2473/openwrt-apps
